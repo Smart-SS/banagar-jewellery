@@ -1,0 +1,132 @@
+name: Deploy — Banagar Jewellery
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:       # allow manual trigger from GitHub UI
+
+env:
+  AWS_REGION: ap-south-1
+  STACK_NAME: banagar-jewellery-prod
+  SAM_BUCKET: banagar-jewellery-prod-sam-artifacts
+
+jobs:
+  deploy:
+    name: SAM Deploy + S3 Sync
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write    # needed for OIDC auth
+      contents: read
+
+    steps:
+      # ── Checkout ──────────────────────────────────────────────────
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # ── AWS credentials (via OIDC — no long-lived keys needed) ───
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      # ── Set up SAM CLI ────────────────────────────────────────────
+      - name: Setup SAM CLI
+        uses: aws-actions/setup-sam@v2
+        with:
+          use-installer: true
+
+      # ── SAM Build ────────────────────────────────────────────────
+      - name: SAM Build
+        run: sam build --template template.yaml
+
+      # ── Ensure SAM artifact bucket exists ────────────────────────
+      - name: Ensure SAM artifact bucket
+        run: |
+          aws s3 mb s3://${{ env.SAM_BUCKET }} --region ${{ env.AWS_REGION }} 2>/dev/null || true
+
+      # ── SAM Deploy (infra) ────────────────────────────────────────
+      - name: SAM Deploy
+        run: |
+          sam deploy \
+            --template-file .aws-sam/build/template.yaml \
+            --stack-name ${{ env.STACK_NAME }} \
+            --s3-bucket ${{ env.SAM_BUCKET }} \
+            --region ${{ env.AWS_REGION }} \
+            --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM \
+            --parameter-overrides Environment=prod \
+            --no-fail-on-empty-changeset
+
+      # ── Get Stack Outputs ─────────────────────────────────────────
+      - name: Get Stack Outputs
+        id: stack
+        run: |
+          BUCKET=$(aws cloudformation describe-stacks \
+            --stack-name ${{ env.STACK_NAME }} \
+            --region ${{ env.AWS_REGION }} \
+            --query "Stacks[0].Outputs[?OutputKey=='WebsiteBucketName'].OutputValue" \
+            --output text)
+          CF_ID=$(aws cloudformation describe-stacks \
+            --stack-name ${{ env.STACK_NAME }} \
+            --region ${{ env.AWS_REGION }} \
+            --query "Stacks[0].Outputs[?OutputKey=='CloudFrontDistributionId'].OutputValue" \
+            --output text)
+          CF_URL=$(aws cloudformation describe-stacks \
+            --stack-name ${{ env.STACK_NAME }} \
+            --region ${{ env.AWS_REGION }} \
+            --query "Stacks[0].Outputs[?OutputKey=='CloudFrontURL'].OutputValue" \
+            --output text)
+          echo "bucket=$BUCKET"   >> $GITHUB_OUTPUT
+          echo "cf_id=$CF_ID"     >> $GITHUB_OUTPUT
+          echo "cf_url=$CF_URL"   >> $GITHUB_OUTPUT
+
+      # ── Sync HTML files (short cache) ────────────────────────────
+      - name: Sync HTML files
+        run: |
+          aws s3 sync . s3://${{ steps.stack.outputs.bucket }} \
+            --region ${{ env.AWS_REGION }} \
+            --exclude "*" \
+            --include "*.html" \
+            --cache-control "max-age=300, public" \
+            --content-type "text/html; charset=utf-8" \
+            --delete
+
+      # ── Sync CSS + JS (medium cache) ─────────────────────────────
+      - name: Sync CSS & JS
+        run: |
+          aws s3 sync . s3://${{ steps.stack.outputs.bucket }} \
+            --region ${{ env.AWS_REGION }} \
+            --exclude "*" \
+            --include "css/*" \
+            --include "js/*" \
+            --cache-control "max-age=604800, public"
+
+      # ── Sync Images (long cache) ──────────────────────────────────
+      - name: Sync Images
+        run: |
+          aws s3 sync . s3://${{ steps.stack.outputs.bucket }} \
+            --region ${{ env.AWS_REGION }} \
+            --exclude "*" \
+            --include "images/*" \
+            --cache-control "max-age=2592000, public"
+
+      # ── CloudFront Cache Invalidation ────────────────────────────
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ steps.stack.outputs.cf_id }} \
+            --paths "/*"
+
+      # ── Summary ───────────────────────────────────────────────────
+      - name: Print live URL
+        run: |
+          echo "## ✅ Deploy Successful" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "🌐 **Live URL:** ${{ steps.stack.outputs.cf_url }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| | |" >> $GITHUB_STEP_SUMMARY
+          echo "|---|---|" >> $GITHUB_STEP_SUMMARY
+          echo "| Stack | ${{ env.STACK_NAME }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Bucket | ${{ steps.stack.outputs.bucket }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| CloudFront ID | ${{ steps.stack.outputs.cf_id }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Region | ${{ env.AWS_REGION }} |" >> $GITHUB_STEP_SUMMARY

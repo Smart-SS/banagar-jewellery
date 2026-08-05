@@ -1,0 +1,22 @@
+# SAM config — auto-populated after first deploy
+# You can also run: sam deploy --guided
+# and save the answers here
+
+version = 0.1
+
+[default.global.parameters]
+stack_name = "banagar-jewellery-prod"
+
+[default.build.parameters]
+cached = true
+parallel = true
+
+[default.deploy.parameters]
+stack_name = "banagar-jewellery-prod"
+s3_bucket = "banagar-jewellery-prod-sam-artifacts"
+s3_prefix = "banagar-jewellery"
+region = "ap-south-1"
+confirm_changeset = false
+capabilities = "CAPABILITY_IAM CAPABILITY_NAMED_IAM"
+parameter_overrides = "Environment=prod"
+image_repositories = []
