@@ -9,19 +9,19 @@ const RATES = { '24K': 14400, '22K': 13200, '18K': 10800 };
 // Maps item id → local image path
 const LOCAL_IMAGES = {
   // Rings
-  r1: 'images/gold-rings/lucid-origin_Professional_product_photography_of_a_single_Indian_gold_ring_Kundan_style_craft-0.jpg',
-  r2: 'images/gold-rings/lucid-origin_Professional_product_photography_of_a_single_Indian_gold_ring_solitaire_style_cr-0.jpg',
-  r3: 'images/gold-rings/lucid-origin_Professional_product_photography_of_a_single_Indian_gold_ring_temple_jewelry_sty-0.jpg',
+  r1: 'Images/gold-rings/lucid-origin_Professional_product_photography_of_a_single_Indian_gold_ring_Kundan_style_craft-0.jpg',
+  r2: 'Images/gold-rings/lucid-origin_Professional_product_photography_of_a_single_Indian_gold_ring_solitaire_style_cr-0.jpg',
+  r3: 'Images/gold-rings/lucid-origin_Professional_product_photography_of_a_single_Indian_gold_ring_temple_jewelry_sty-0.jpg',
   // Bracelets
-  b1: 'images/Braclets/lucid-origin_Professional_product_photography_of_a_single_men_s_gold_bracelet_chunky_curb-cha-0.jpg',
-  b2: 'images/Braclets/lucid-origin_Professional_product_photography_of_a_single_men_s_gold_bracelet_cuff-style_kada-0.jpg',
-  b3: 'images/Braclets/lucid-origin_Professional_product_photography_of_a_single_men_s_gold_bracelet_wheat-chain_sty-0.jpg',
+  b1: 'Images/Braclets/lucid-origin_Professional_product_photography_of_a_single_men_s_gold_bracelet_chunky_curb-cha-0.jpg',
+  b2: 'Images/Braclets/lucid-origin_Professional_product_photography_of_a_single_men_s_gold_bracelet_cuff-style_kada-0.jpg',
+  b3: 'Images/Braclets/lucid-origin_Professional_product_photography_of_a_single_men_s_gold_bracelet_wheat-chain_sty-0.jpg',
   // Bangles
-  bg1: 'images/gold_bangles/lucid-origin_Professional_product_photography_of_a_single_Indian_gold_bangle_Kundan_style_cra-0.jpg',
-  bg2: 'images/gold_bangles/lucid-origin_Professional_product_photography_of_a_single_Indian_gold_bangle_South_Indian_tra-0.jpg',
-  bg3: 'images/gold_bangles/lucid-origin_Professional_product_photography_of_a_single_Indian_gold_bangle_antique_finish_s-0.jpg',
-  bg4: 'images/gold_bangles/lucid-origin_Professional_product_photography_of_a_single_Indian_gold_bangle_filigree_style_c-0.jpg',
-  bg5: 'images/gold_bangles/lucid-origin_Professional_product_photography_of_a_single_Indian_gold_bangle_temple_jewelry_s-0.jpg',
+  bg1: 'Images/gold_bangles/lucid-origin_Professional_product_photography_of_a_single_Indian_gold_bangle_Kundan_style_cra-0.jpg',
+  bg2: 'Images/gold_bangles/lucid-origin_Professional_product_photography_of_a_single_Indian_gold_bangle_South_Indian_tra-0.jpg',
+  bg3: 'Images/gold_bangles/lucid-origin_Professional_product_photography_of_a_single_Indian_gold_bangle_antique_finish_s-0.jpg',
+  bg4: 'Images/gold_bangles/lucid-origin_Professional_product_photography_of_a_single_Indian_gold_bangle_filigree_style_c-0.jpg',
+  bg5: 'Images/gold_bangles/lucid-origin_Professional_product_photography_of_a_single_Indian_gold_bangle_temple_jewelry_s-0.jpg',
 };
 
 // Unused placeholder — kept so no reference errors if config.js loaded
