@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 100">
+
+  <!-- Blue banner -->
+  <rect x="0" y="18" width="255" height="62" rx="5" fill="#2f7fc1"/>
+
+  <!-- "Bank of India" bold white text -->
+  <text x="14" y="59" font-family="Arial Black, Arial, sans-serif"
+        font-size="30" font-weight="900" fill="#ffffff">Bank of India</text>
+
+  <!-- ===== 5-POINTED STAR centred at (295, 49) ===== -->
+  <!-- Outer R=50, Inner r=20 — proper 5-point star -->
+  <g transform="translate(295,49)">
+
+    <!-- Main orange star (5-pointed) -->
+    <polygon fill="#e8561a" stroke="#b83a06" stroke-width="1"
+      points="0,-50  11.8,-16.2  47.6,-15.5  19.1,5.9  29.4,39.5  0,20  -29.4,39.5  -19.1,5.9  -47.6,-15.5  -11.8,-16.2"/>
+
+    <!-- Darker orange depth facets (one per point, toward centre) -->
+    <polygon fill="#a83206" opacity="0.55" points="0,-50   11.8,-16.2   0,-11"/>
+    <polygon fill="#a83206" opacity="0.55" points="47.6,-15.5  19.1,5.9   23,-3"/>
+    <polygon fill="#a83206" opacity="0.55" points="29.4,39.5   0,20      13,23"/>
+    <polygon fill="#a83206" opacity="0.55" points="-29.4,39.5  0,20     -13,23"/>
+    <polygon fill="#a83206" opacity="0.55" points="-47.6,-15.5 -19.1,5.9 -23,-3"/>
+
+    <!-- Blue pentagon in centre (same blue as banner) -->
+    <polygon fill="#2f7fc1"
+      points="0,-11  23,-3  13,23  -13,23  -23,-3"/>
+
+    <!-- White emblem circle -->
+    <circle cx="0" cy="6" r="20" fill="white"/>
+
+    <!-- ===== Goddess (Bharatmata) with trident + lion ===== -->
+
+    <!-- Lion body -->
+    <ellipse cx="9" cy="19" rx="8" ry="4.5" fill="#777"/>
+    <!-- Lion head -->
+    <circle cx="15" cy="13" r="4" fill="#777"/>
+    <!-- Mane ring -->
+    <circle cx="15" cy="13" r="5.5" fill="none" stroke="#555" stroke-width="1.5"/>
+    <!-- Lion ear -->
+    <polygon points="13,8  15,6  17,8" fill="#666"/>
+    <!-- Lion tail -->
+    <path d="M 17,19 Q 22,15 21,10" fill="none" stroke="#777" stroke-width="1.2" stroke-linecap="round"/>
+
+    <!-- Goddess lower sari / seated -->
+    <ellipse cx="-3" cy="20" rx="5" ry="4" fill="#333"/>
+    <!-- Torso -->
+    <rect x="-5.5" y="9" width="5" height="10" rx="2" fill="#333"/>
+    <!-- Head -->
+    <circle cx="-3" cy="4.5" r="3.2" fill="#444"/>
+    <!-- Hair bun top -->
+    <ellipse cx="-3" cy="1.5" rx="2" ry="1.5" fill="#222"/>
+
+    <!-- Trident staff -->
+    <line x1="-11" y1="22" x2="-11" y2="-8" stroke="#222" stroke-width="1.4" stroke-linecap="round"/>
+    <!-- Three prongs -->
+    <line x1="-11" y1="-8"  x2="-11" y2="-14" stroke="#222" stroke-width="1.4"/>
+    <line x1="-14" y1="-9"  x2="-14" y2="-14" stroke="#222" stroke-width="1.1"/>
+    <line x1="-8"  y1="-9"  x2="-8"  y2="-14" stroke="#222" stroke-width="1.1"/>
+    <!-- Prong cross-bar -->
+    <line x1="-14" y1="-11" x2="-8" y2="-11" stroke="#222" stroke-width="0.8"/>
+
+    <!-- Left arm to trident -->
+    <line x1="-5" y1="11" x2="-11" y2="7" stroke="#333" stroke-width="1.3" stroke-linecap="round"/>
+    <!-- Right arm toward lion -->
+    <line x1="-1" y1="11" x2="7"  y2="15" stroke="#333" stroke-width="1.3" stroke-linecap="round"/>
+
+  </g>
+
+</svg>
