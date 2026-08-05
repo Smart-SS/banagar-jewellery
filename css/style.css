@@ -362,38 +362,60 @@ button { cursor: pointer; border: none; outline: none; background: none; font-fa
   background: rgba(201, 168, 76, 0.05);
 }
 
-/* BOI Badge overrides */
-.boi-hero-badge {
-  padding: 6px 10px;
-  border-radius: 12px;
+/* BOI Credential Strip — hero section */
+.boi-credential-strip {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(58, 134, 200, 0.35);
+  border: 1px solid rgba(33,118,199,0.4);
+  border-radius: 10px;
+  padding: 8px 20px 8px 10px;
+  margin-bottom: 24px;
 }
 
 .boi-badge-img {
-  width: 240px;
+  width: 80px;
   height: auto;
   display: block;
-  filter: drop-shadow(0 2px 10px rgba(58, 134, 200, 0.3));
+}
+
+.boi-credential-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.4;
+}
+
+.boi-cert-line1 {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #4a9de8;
+}
+
+.boi-cert-line2 {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.3px;
 }
 
 .boi-stat-badge {
-  width: 150px;
+  width: 120px;
   height: auto;
   display: block;
   margin: 0 auto 4px;
-  filter: drop-shadow(0 1px 4px rgba(58,134,200,0.25));
 }
 
 .boi-value-badge {
-  width: 130px;
+  width: 110px;
   height: auto;
   flex-shrink: 0;
-  filter: drop-shadow(0 1px 4px rgba(58,134,200,0.2));
 }
 
 .boi-feature-icon {
-  width: 200px;
+  width: 180px;
   height: auto;
   display: block;
   margin: 0 auto;
