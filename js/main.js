@@ -221,7 +221,7 @@ function quickView(name) {
 
 function shareProduct(name) {
   if (navigator.share) {
-    navigator.share({ title: `Anil Gold – ${name}`, url: window.location.href });
+    navigator.share({ title: `Banagar Jewellery – ${name}`, url: window.location.href });
   } else {
     navigator.clipboard.writeText(window.location.href).then(() => {
       showToast('🔗 Link copied to clipboard!');
