@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset        <div class="products-filter" id="filterButtons">
+          <button class="filter-btn active" data-filter="all" onclick="filterProducts('all', this)">All Services</button>
+          <button class="filter-btn" data-filter="appraisal" onclick="filterProducts('appraisal', this)">Gold Appraisal</button>
+          <button class="filter-btn" data-filter="crafting" onclick="filterProducts('crafting', this)">Custom Crafting</button>
+          <button class="filter-btn" data-filter="repair" onclick="filterProducts('repair', this)">Repair & Restore</button>
+          <button class="filter-btn" data-filter="hallmark" onclick="filterProducts('hallmark', this)">Hallmarking</button>
+          <button class="filter-btn" data-filter="exchange" onclick="filterProducts('exchange', this)">Old Gold Exchange</button>
+        </div> />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — Anil Gold</title>
+  <meta name="description" content="Gold appraisal, custom jewellery crafting, repair, BIS hallmarking and old gold exchange — by a Bank of India certified goldsmith." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <div class="logo-icon">💰</div>
+          <div>
+            <span class="logo-text gold-text">Anil Gold</span>
+            <span class="logo-sub">Est. 1998</span>
+          </div>
+        </a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="catalog.html">Catalogue</a></li>
+          <li><a href="products.html" class="active">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html" class="nav-cta">Book Appointment</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE HERO ===== -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span style="color:var(--gold)">Services</span>
+        </div>
+        <h1>Our <span class="gold-text">Services</span></h1>
+        <p>Gold appraisal, custom jewellery crafting, repair, hallmarking and more — by a Bank of India certified master goldsmith.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCTS ===== -->
+  <section class="products-page">
+    <div class="container">
+      <div class="products-filter" id="filterButtons">
+        <button class="filter-btn active" data-filter="all" onclick="filterProducts('all', this)">All Products</button>
+        <button class="filter-btn" data-filter="bars" onclick="filterProducts('bars', this)">Gold Bars</button>
+        <button class="filter-btn" data-filter="coins" onclick="filterProducts('coins', this)">Gold Coins</button>
+        <button class="filter-btn" data-filter="jewellery" onclick="filterProducts('jewellery', this)">Jewellery</button>
+        <button class="filter-btn" data-filter="silver" onclick="filterProducts('silver', this)">Silver</button>
+        <button class="filter-btn" data-filter="investment" onclick="filterProducts('investment', this)">Investment</button>
+      </div>
+      <div class="products-full-grid" id="productsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content fade-in">
+        <h2>Need a <span class="gold-text">Custom Service?</span></h2>
+        <p>Every job is unique. Contact Anil directly to discuss your requirement — appraisal, custom design, repair, or bulk work.</p>
+        <div class="cta-buttons">
+          <a href="contact.html" class="btn btn-gold">
+            <i class="fas fa-calendar-check"></i> Book Appointment
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <div class="logo-icon">💰</div>
+            <div>
+              <span class="logo-text gold-text">Anil Gold</span>
+              <span class="logo-sub">Est. 1998</span>
+            </div>
+          </a>
+          <p>India's most trusted gold retailer since 1998. BIS certified, government recognized, and committed to your financial prosperity.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Products</h4>
+          <ul class="footer-links">
+            <li><a href="#">Gold Bars</a></li>
+            <li><a href="#">Gold Coins</a></li>
+            <li><a href="#">Jewellery</a></li>
+            <li><a href="#">Silver Products</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Contact Us</h4>
+          <div class="footer-contact-item">
+            <i class="fas fa-map-marker-alt contact-icon"></i>
+            <p>45, Gold Bazaar Street, T. Nagar, Chennai – 600017</p>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-phone contact-icon"></i>
+            <p>+91 98765 43210</p>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-envelope contact-icon"></i>
+            <p>info@anilgold.in</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Anil Gold. All Rights Reserved.</p>
+        <div class="footer-certifications">
+          <span class="cert-badge">BIS</span>
+          <span class="cert-badge">IBJA</span>
+          <span class="cert-badge">AIGJC</span>
+          <span class="cert-badge">ISO 9001</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+  <div class="toast" id="toast"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

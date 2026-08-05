@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jewellery Catalogue — Anil Gold</title>
+  <meta name="description" content="Browse Anil's custom jewellery catalogue — rings, chains, necklaces, earrings, bracelets, bangles and more. Place your order today." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/catalog.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <div class="logo-icon">💰</div>
+          <div>
+            <span class="logo-text gold-text">Anil Gold</span>
+            <span class="logo-sub">Est. 1998</span>
+          </div>
+        </a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="catalog.html" class="active">Catalogue</a></li>
+          <li><a href="products.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html" class="nav-cta">Book Appointment</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE HERO ===== -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span style="color:var(--gold)">Jewellery Catalogue</span>
+        </div>
+        <h1>Jewellery <span class="gold-text">Catalogue</span></h1>
+        <p>Browse our full collection of handcrafted gold jewellery. Select any piece to place a custom order — crafted to your exact specifications by Anil.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LIVE RATE BAR ===== -->
+  <div class="rate-bar">
+    <div class="container">
+      <div class="rate-bar-inner">
+        <div class="rate-item">
+          <span class="rate-label"><i class="fas fa-circle" style="color:#4ade80; font-size:8px;"></i> Live Rates — Hyderabad (4 Aug 2026)</span>
+        </div>
+        <div class="rate-item">
+          <span class="rate-name">Gold 24K</span>
+          <span class="rate-value">₹14,400/g</span>
+        </div>
+        <div class="rate-item">
+          <span class="rate-name">Gold 22K</span>
+          <span class="rate-value">₹13,200/g</span>
+        </div>
+        <div class="rate-item">
+          <span class="rate-name">Gold 18K</span>
+          <span class="rate-value">₹10,800/g</span>
+        </div>
+        <div class="rate-item">
+          <span class="rate-name">Making Charges</span>
+          <span class="rate-value" style="color:var(--gray)">As per design</span>
+        </div>
+        <a href="contact.html" class="rate-cta">
+          <i class="fas fa-phone"></i> Get Exact Quote
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CATALOGUE SECTION ===== -->
+  <section class="catalog-section">
+    <div class="container">
+
+      <!-- Search + Filter Bar -->
+      <div class="catalog-controls">
+        <div class="catalog-search">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchInput" placeholder="Search jewellery — e.g. 'bangle', 'chain', 'bridal'..." oninput="searchCatalog()" />
+          <button class="search-clear" id="searchClear" onclick="clearSearch()" style="display:none;">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="catalog-sort">
+          <select onchange="sortCatalog(this.value)">
+            <option value="default">Sort by Default</option>
+            <option value="name">Sort by Name</option>
+            <option value="weight-low">Weight: Low to High</option>
+            <option value="weight-high">Weight: High to Low</option>
+            <option value="popular">Most Popular</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="cat-tabs" id="catTabs">
+        <button class="cat-tab active" data-cat="all" onclick="filterCatalog('all', this)">
+          <span class="tab-icon">✨</span> All Items
+          <span class="tab-count" id="count-all">0</span>
+        </button>
+        <button class="cat-tab" data-cat="rings" onclick="filterCatalog('rings', this)">
+          <span class="tab-icon">💍</span> Rings
+          <span class="tab-count" id="count-rings">0</span>
+        </button>
+        <button class="cat-tab" data-cat="bracelets" onclick="filterCatalog('bracelets', this)">
+          <span class="tab-icon">⛓️</span> Bracelets
+          <span class="tab-count" id="count-bracelets">0</span>
+        </button>
+        <button class="cat-tab" data-cat="bangles" onclick="filterCatalog('bangles', this)">
+          <span class="tab-icon">�</span> Bangles
+          <span class="tab-count" id="count-bangles">0</span>
+        </button>
+      </div>
+
+      <!-- Results info -->
+      <div class="catalog-info">
+        <span id="resultCount">Loading...</span>
+        <span class="purity-note"><i class="fas fa-info-circle"></i> All prices = gold weight × live rate. Making charges extra. GST 3% applicable.</span>
+      </div>
+
+      <!-- Product Grid -->
+      <div class="catalog-grid" id="catalogGrid"></div>
+
+      <!-- Empty state -->
+      <div class="empty-state" id="emptyState" style="display:none;">
+        <div style="font-size:60px; margin-bottom:16px;">🔍</div>
+        <h3>No items found</h3>
+        <p>Try a different search term or category</p>
+        <button class="btn btn-outline" onclick="clearSearch(); filterCatalog('all', document.querySelector('.cat-tab'))">
+          Show All Items
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== LIGHTBOX ===== -->
+  <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()"></div>
+  <div class="lightbox" id="lightbox">
+    <!-- Image Panel -->
+    <div class="lightbox-img-wrap">
+      <button class="lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+      <div class="lightbox-spinner" id="lightboxSpinner"><i class="fas fa-spinner fa-spin"></i></div>
+      <img id="lightboxImg" src="" alt="" />
+      <button class="lightbox-prev" id="lightboxPrev" onclick="lightboxNav(-1)"><i class="fas fa-chevron-left"></i></button>
+      <button class="lightbox-next" id="lightboxNext" onclick="lightboxNav(1)"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    <!-- Info Panel -->
+    <div class="lightbox-info-panel">
+      <div class="lightbox-info-header">
+        <div class="lightbox-cat-label" id="lbCatLabel"></div>
+        <div class="lightbox-title" id="lbTitle"></div>
+        <div class="lightbox-desc" id="lbDesc"></div>
+      </div>
+      <div class="lightbox-specs-panel" id="lbSpecs"></div>
+      <div class="lightbox-price-panel">
+        <div class="lightbox-price-from">Starting From</div>
+        <div class="lightbox-price-big" id="lbPrice"></div>
+        <div class="lightbox-price-note">Final price based on weight · 22K BIS hallmarked · Making charges applicable</div>
+      </div>
+      <div class="lightbox-cta-panel">
+        <button class="lightbox-order-btn" id="lightboxOrder" onclick="lightboxPlaceOrder()">
+          <i class="fas fa-paper-plane"></i> Place Custom Order
+        </button>
+        <button class="lightbox-wish-btn"><i class="far fa-heart"></i> Add to Wishlist</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ORDER MODAL ===== -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+  <div class="order-modal" id="orderModal">
+    <div class="modal-header">
+      <h3 id="modalTitle">Place Order</h3>
+      <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-product" id="modalProduct"></div>
+      <form id="orderForm" onsubmit="submitOrder(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name *</label>
+            <input type="text" id="oName" placeholder="Full name" required />
+          </div>
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" id="oPhone" placeholder="+91 98765 43210" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Preferred Karat</label>
+            <select id="oKarat">
+              <option>22K (Most Common)</option>
+              <option>18K</option>
+              <option>24K (Bars/Coins only)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Approx. Weight Needed</label>
+            <select id="oWeight">
+              <option>As per standard design</option>
+              <option>Under 5g</option>
+              <option>5g – 10g</option>
+              <option>10g – 20g</option>
+              <option>20g – 50g</option>
+              <option>50g+</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Size / Specification (if applicable)</label>
+          <input type="text" id="oSize" placeholder="e.g. Ring size 16, Bangle dia 2.4, Chain length 18 inch..." />
+        </div>
+        <div class="form-group">
+          <label>Special Requirements</label>
+          <textarea id="oNotes" placeholder="Any special design preferences, engravings, stone settings, finish type (matte/polish)..." style="min-height:90px;"></textarea>
+        </div>
+        <div class="modal-price-note">
+          <i class="fas fa-info-circle"></i>
+          Final price = (gold weight × live rate) + making charges + 3% GST. Anil will call you with an exact quote within 2 hours.
+        </div>
+        <button type="submit" class="btn btn-gold" style="width:100%; justify-content:center; margin-top:4px;">
+          <i class="fas fa-paper-plane"></i> Submit Order Request
+        </button>
+      </form>
+      <div class="order-success" id="orderSuccess" style="display:none;">
+        <div style="font-size:48px; margin-bottom:12px;">✅</div>
+        <h4>Order Request Received!</h4>
+        <p>Anil will call you within 2 hours to confirm the design, weight, and final price.</p>
+        <button class="btn btn-outline" onclick="closeModal()" style="margin-top:16px;">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content fade-in">
+        <h2>Don't See What <span class="gold-text">You're Looking For?</span></h2>
+        <p>Anil crafts fully custom designs. Bring a photo, sketch, or just an idea — and he'll make it happen.</p>
+        <div class="cta-buttons">
+          <a href="contact.html" class="btn btn-gold">
+            <i class="fas fa-calendar-check"></i> Book Custom Design Appointment
+          </a>
+          <a href="tel:+919876543210" class="btn btn-outline">
+            <i class="fas fa-phone"></i> Call Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <div class="logo-icon">💰</div>
+            <div>
+              <span class="logo-text gold-text">Anil Gold</span>
+              <span class="logo-sub">Est. 1998</span>
+            </div>
+          </a>
+          <p>Master Goldsmith & Bank of India Certified Gold Appraiser. Custom jewellery crafted to perfection in Hyderabad.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="catalog.html">Jewellery Catalogue</a></li>
+            <li><a href="products.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Categories</h4>
+          <ul class="footer-links">
+            <li><a href="catalog.html">Rings</a></li>
+            <li><a href="catalog.html">Necklaces</a></li>
+            <li><a href="catalog.html">Earrings</a></li>
+            <li><a href="catalog.html">Bangles & Bracelets</a></li>
+            <li><a href="catalog.html">Bridal Sets</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Contact</h4>
+          <div class="footer-contact-item">
+            <i class="fas fa-map-marker-alt contact-icon"></i>
+            <p>45, Gold Bazaar Street, T. Nagar, Hyderabad – 500001</p>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-phone contact-icon"></i>
+            <p>+91 98765 43210</p>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-envelope contact-icon"></i>
+            <p>info@anilgold.in</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Anil Gold. All Rights Reserved.</p>
+        <div class="footer-certifications">
+          <span class="cert-badge">BIS</span>
+          <span class="cert-badge">BOI Appraiser</span>
+          <span class="cert-badge">IBJA</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" onclick="scrollToTop()"><i class="fas fa-chevron-up"></i></button>
+  <div class="toast" id="toast"></div>
+
+  <script src="js/main.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/catalog.js"></script>
+</body>
+</html>

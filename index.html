@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anil Gold — Master Goldsmith & Certified Gold Appraiser</title>
+  <meta name="description" content="Anil Gold — Master Goldsmith & Bank of India Certified Gold Appraiser. Custom jewellery crafting, gold valuation, repair, hallmarking & more. Hyderabad." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <div class="logo-icon">💰</div>
+          <div>
+            <span class="logo-text gold-text">Anil Gold</span>
+            <span class="logo-sub">Est. 1998</span>
+          </div>
+        </a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="catalog.html">Catalogue</a></li>
+          <li><a href="products.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html" class="nav-cta">Book Appointment</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-particles" id="particles"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="hero-badge">
+            <i class="fas fa-university"></i> Bank of India Certified Gold Appraiser
+          </div>
+          <h1 class="hero-title">
+            <span class="line">Master</span>
+            <span class="line gold-text">Goldsmith &</span>
+            <span class="line">Appraiser.</span>
+          </h1>
+          <p class="hero-desc">
+            25+ years of goldsmithing mastery. Certified gold appraiser for Bank of India. Custom jewellery crafting, certified valuation, repair, and hallmarking — all under one trusted name in Hyderabad.
+          </p>
+          <div class="hero-actions">
+            <a href="contact.html" class="btn btn-gold">
+              <i class="fas fa-calendar-check"></i> Book Appointment
+            </a>
+            <a href="products.html" class="btn btn-outline">
+              <i class="fas fa-tools"></i> Our Services
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <div class="stat-number">25+</div>
+              <div class="stat-label">Years Crafting</div>
+            </div>
+            <div class="hero-stat">
+              <div class="stat-number">5K+</div>
+              <div class="stat-label">Valuations Done</div>
+            </div>
+            <div class="hero-stat">
+              <div class="stat-number">BOI</div>
+              <div class="stat-label">Certified Appraiser</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-ring">
+            <div class="ring-dot"></div>
+            <div class="hero-coin">🪙</div>
+          </div>
+          <div class="hero-floating-card card-1">
+            <div class="card-label">Gold 24K (10g) — Hyd</div>
+            <div class="card-value" id="heroPrice">₹1,44,000</div>
+            <div class="card-change">▼ −22 today (Hyd)</div>
+          </div>
+          <div class="hero-floating-card card-2">
+            <div class="card-label">BOI Valuation Rate</div>
+            <div class="card-value">₹1,41,840</div>
+            <div class="card-change">Bank Approved Rate</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TICKER ===== -->
+  <div class="ticker">
+    <div class="ticker-track" id="tickerTrack"></div>
+  </div>
+
+  <!-- ===== FEATURES / SERVICES ===== -->
+  <section class="features">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="hero-badge" style="display:inline-flex; margin-bottom:16px;">What We Do</p>
+        <h2 class="section-title">Expert <span class="gold-text">Gold Services</span></h2>
+        <div class="divider"><span></span><i class="fas fa-star"></i><span></span></div>
+        <p class="section-subtitle">From crafting a bridal necklace to certifying gold for a bank loan — Anil brings master craftsmanship and institutional-grade accuracy to every job.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card fade-in">
+          <div class="feature-icon">�</div>
+          <h3 class="feature-title">Bank of India Gold Appraisal</h3>
+          <p class="feature-desc">Official certified appraiser for Bank of India. Accurate purity & weight valuation for gold loans, insurance, and legal purposes.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">✍️</div>
+          <h3 class="feature-title">Custom Jewellery Crafting</h3>
+          <p class="feature-desc">Bring your design or idea — rings, necklaces, bangles, earrings — handcrafted by a master goldsmith with 25+ years of experience.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">�</div>
+          <h3 class="feature-title">Jewellery Repair & Restoration</h3>
+          <p class="feature-desc">Broken clasps, cracked bangles, worn rings — restored with precision. All repairs use matching-purity gold alloys.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">🏅</div>
+          <h3 class="feature-title">BIS Hallmarking Assistance</h3>
+          <p class="feature-desc">Help you get your gold jewellery BIS hallmarked at government-approved centres. End-to-end guidance and submission support.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">⚖️</div>
+          <h3 class="feature-title">Purity & Weight Certification</h3>
+          <p class="feature-desc">Independent, unbiased gold purity testing using XRF analysis. Ideal before buying, selling, or pledging gold.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">🔄</div>
+          <h3 class="feature-title">Old Gold Exchange</h3>
+          <p class="feature-desc">Exchange your old jewellery for new designs at fair market rates. Transparent deduction. No hidden melting charges.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURED SERVICES ===== -->
+  <section class="products-preview">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title">Work <span class="gold-text">Showcase</span></h2>
+        <div class="divider"><span></span><i class="fas fa-gem"></i><span></span></div>
+        <p class="section-subtitle">A selection of custom jewellery crafted and gold valuations certified — every piece a testament to skill and integrity.</p>
+      </div>
+      <div class="products-grid" id="featuredProducts"></div>
+      <div style="text-align:center; margin-top:48px;" class="fade-in">
+        <a href="products.html" class="btn btn-outline">
+          View All Services <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GOLD PRICE SECTION ===== -->
+  <section class="gold-price">
+    <div class="container">
+      <div class="price-grid">
+        <div class="fade-in">
+          <h2 class="section-title">Today's <span class="gold-text">Gold Price</span></h2>
+          <div class="divider" style="margin:12px 0 20px; justify-content:flex-start;">
+            <span></span><i class="fas fa-chart-line" style="color:var(--gold)"></i><span></span>
+          </div>
+          <p style="color:var(--gray); line-height:1.7; margin-bottom:16px;">
+            Live market rates used as reference for all gold appraisals, old gold exchange, and custom jewellery pricing. Hyderabad rates updated daily from GoodReturns / MCX.
+          </p>
+          <p class="price-disclaimer">* Jewellery appraisal value for bank/loan purposes may differ. Contact Anil for an official certified valuation.</p>
+          <div style="margin-top:28px;">
+            <a href="contact.html" class="btn btn-gold">
+              <i class="fas fa-calendar-check"></i> Book a Valuation
+            </a>
+          </div>
+        </div>
+        <div class="price-cards fade-in">
+          <div class="price-card">
+            <div class="price-card-label">Gold 24K / 10g</div>
+            <div class="price-card-value">₹1,44,000</div>
+            <div class="price-card-change down">▼ −0.15%</div>
+          </div>
+          <div class="price-card">
+            <div class="price-card-label">Gold 22K / 10g</div>
+            <div class="price-card-value">₹1,32,000</div>
+            <div class="price-card-change down">▼ −0.15%</div>
+          </div>
+          <div class="price-card">
+            <div class="price-card-label">Silver / 1Kg</div>
+            <div class="price-card-value">₹2,35,000</div>
+            <div class="price-card-change down">▼ −0.09%</div>
+          </div>
+          <div class="price-card">
+            <div class="price-card-label">Gold 18K / 10g</div>
+            <div class="price-card-value">₹1,08,000</div>
+            <div class="price-card-change down">▼ −0.15%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title">What Our <span class="gold-text">Customers Say</span></h2>
+        <div class="divider"><span></span><i class="fas fa-heart"></i><span></span></div>
+        <p class="section-subtitle">Thousands of happy investors trust Anil Gold for their precious metal needs.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-in">
+          <div class="testimonial-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-text">"Anil sir appraised my gold jewellery for my Bank of India gold loan. The valuation was fast, accurate, and the bank accepted it immediately. Very professional!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">R</div>
+            <div>
+              <div class="author-name">Ramesh Krishnan</div>
+              <div class="author-location">Hyderabad, Telangana</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in">
+          <div class="testimonial-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-text">"I gave Anil sir my grandmother's old gold bangles for redesign. He crafted a stunning necklace set while keeping every gram of the original gold. Truly a master craftsman."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">P</div>
+            <div>
+              <div class="author-name">Priya Reddy</div>
+              <div class="author-location">Secunderabad, Telangana</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in">
+          <div class="testimonial-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+          </div>
+          <p class="testimonial-text">"Got my wife's broken chain and ring repaired. The finish was perfect — you can't even tell it was repaired. Pricing was honest and he explained every step. Highly trust him."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">S</div>
+            <div>
+              <div class="author-name">Suresh Kumar</div>
+              <div class="author-location">Hyderabad, Telangana</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content fade-in">
+        <h2>Ready to Get Your <span class="gold-text">Gold Appraised or Crafted?</span></h2>
+        <p>Whether it's a Bank of India gold loan valuation, a custom bridal set, or a repair — book your appointment today.</p>
+        <div class="cta-buttons">
+          <a href="contact.html" class="btn btn-gold">
+            <i class="fas fa-calendar-check"></i> Book Appointment
+          </a>
+          <a href="products.html" class="btn btn-outline">
+            <i class="fas fa-tools"></i> Our Services
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <div class="logo-icon">💰</div>
+            <div>
+              <span class="logo-text gold-text">Anil Gold</span>
+              <span class="logo-sub">Est. 1998</span>
+            </div>
+          </a>
+          <p>Master Goldsmith & Bank of India Certified Gold Appraiser since 1998. Trusted for custom jewellery crafting, gold valuation, repair, and BIS hallmarking in Hyderabad.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Gold Rate Today</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Services</h4>
+          <ul class="footer-links">
+            <li><a href="products.html">Gold Appraisal (BOI)</a></li>
+            <li><a href="products.html">Custom Jewellery</a></li>
+            <li><a href="products.html">Jewellery Repair</a></li>
+            <li><a href="products.html">BIS Hallmarking</a></li>
+            <li><a href="products.html">Old Gold Exchange</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Contact Us</h4>
+          <div class="footer-contact-item">
+            <i class="fas fa-map-marker-alt contact-icon"></i>
+            <p>45, Gold Bazaar Street, T. Nagar, Hyderabad – 500001, Telangana</p>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-phone contact-icon"></i>
+            <p>+91 98765 43210<br>+91 40 2345 6789</p>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-envelope contact-icon"></i>
+            <p>info@anilgold.in<br>appraisal@anilgold.in</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Anil Gold. All Rights Reserved. | GST: 33ABCPG1234R1ZX</p>
+        <div class="footer-certifications">
+          <span class="cert-badge">BIS</span>
+          <span class="cert-badge">IBJA</span>
+          <span class="cert-badge">AIGJC</span>
+          <span class="cert-badge">ISO 9001</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <button class="scroll-top" id="scrollTop" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
